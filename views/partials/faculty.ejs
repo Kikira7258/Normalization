@@ -1,0 +1,26 @@
+
+
+<div>
+    <table class="mx-auto mt-[100px] shadow-md">
+        <thead>
+            <tr class="bg-[#000] text-white text-left">
+                <th class="px-4 py-2">Name</th>
+                <th class="px-4 py-2">Room</th>
+                <th class="px-4 py-2">Department</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if(records.length) { for(var i=0; i < records.length; i++) { %>
+            <tr>
+                <td class="px-4"><%= records[i].name %></td>
+                <td class="px-4"><%= records[i].room %></td>
+                <td class="px-4"><%= records[i].dept %></td>
+            </tr>
+            <% }} else { %>
+                <tr>
+                    <td>No Records</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
