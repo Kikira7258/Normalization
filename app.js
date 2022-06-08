@@ -61,15 +61,15 @@ app.use(
 // >> MIDDLEWEAR <<
 // --------------------
 app.use('/login', loginAuth)
-app.use('/faculty', faculty)
-app.use('/students', students)
+app.use('/faculty', protect, faculty)
+app.use('/students', protect, students)
 // --------------------
 
 
 // --------------------
 // >> ROUTES SECTION | GET ROUTES <<
 // --------------------
-app.get('/', protect, (req, res) => {
+app.get('/', (req, res) => {
 
     conn.query(
         'SELECT * FROM students', (err, rows) => {
@@ -77,32 +77,15 @@ app.get('/', protect, (req, res) => {
                 console.log(err)
             };
 
-
-
-            conn.query(
-                'SELECT * FROM faculty', (err, data) => {
-                    if(err) {
-                        console.log(err)
-                    }
-
-                    res.render('homepage', {
-                        records: data,
-                        details:rows
-                    })
-                }
-            )
-
-
-
-        
+            res.render('homepage', {
+                details:rows
+            })
+      
         }
     ) 
+    
 })
 // --------------------
-
-
-
-
 
 
 

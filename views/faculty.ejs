@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <%- include('partials/nav') %>
+
+    <div class="flex mt-20">
+        <diV class="text-center shadow-md py-4 px-8 ml-8">
+            <div class="mb-4">
+                <h1><span class="mr-4"><i class="fa-solid fa-users"></i></span>Max</h1>
+                <p></p>
+            </div>
+            <div class="mb-4">
+                <h1><span class="mr-4"><i class="fa-solid fa-user"></i></span>Count</h1>
+                <p></p>
+            </div>
+            <div class="mb-4">
+                <h1><span class="mr-4"><i class="fa-solid fa-circle-user"></i></span>Like</h1>
+                <p></p>
+            </div>
+        </diV>
+    
+
+        <div class="mx-auto">
+            <table class="mx-auto shadow-md">
+                <thead>
+                    <tr class="bg-[#000] text-white text-left">
+                        <th class="px-4 py-2">First Name</th>
+                        <th class="px-4 py-2">Last Name</th>
+                        <th class="px-4 py-2">Room</th>
+                        <th class="px-4 py-2">Department</th>
+                        <th class="px-4 py-2">Edit</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white">
+                    <% if(records.length) { for(var i=0; i < records.length; i++) { %>
+                    <tr>
+                        <td class="px-4"><%= records[i].first_nm %></td>
+                        <td class="px-4"><%= records[i].last_nm %></td>
+                        <td class="px-4"><%= records[i].room %></td>
+                        <td class="px-4"><%= records[i].dept %></td>
+                        <td class="px-4"><a href="/faculty/edit/<%= records[i].id %>"><i class="fa-solid fa-pencil hover:opacity-70 hover:border-2 border-white"></i></a></td>
+                    </tr>
+                    <% }} else { %>
+                        <tr>
+                            <td>No Records</td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+

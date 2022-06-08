@@ -40,11 +40,18 @@ router.post('/', (req, res, next) => {
         } else {
             // req.session.login_auth = rows[0].id;
             req.session.isLoggedIn = true;
-            res.redirect('/')
+            res.redirect('/students')
         }
     })
 })
 
+
+
+// Logout
+router.get('/logout', (req, res) => {
+    req.session.destroy()
+    res.redirect('/');
+});
 // --------------------
 
 
